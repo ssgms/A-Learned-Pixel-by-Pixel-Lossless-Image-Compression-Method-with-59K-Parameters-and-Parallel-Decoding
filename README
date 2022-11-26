@@ -1,0 +1,31 @@
+Required libraries:
+    pytorch
+    PIL
+    Visdom
+    easydict
+    numpy
+    torch-vision
+    torchnet
+	
+For training: 
+1) Edit your json file.
+2) In your json file, set "mode" as train.
+3) Set "train_data" as the directory of training data.
+
+For real compression:
+1) In your json file, set "mode" as test.
+2) Set "run_mode" as encode.
+3) Set "run_type" as "S" (sequential) or "P" for (parallel).
+4) Set "decoder_method" as 1 (Wavefront parallel decoding method) or 2 (diagonal parallel decoding method).
+5) Set "test_data" as the directory of test images.
+
+For decoding operation:
+1) In your json file, set "mode" as test.
+2) Set "run_mode" as decode.
+3) Set "run_type" as "S" (sequential) or "P" for (parallel). 
+4) Set "bitstream_path" as the directory of decoded bitsream.
+5) Set "H" and "W" as the height and width of the image to be decoded.
+6) For parallel decoding, set "decoder_method" as 1 (Wavefront parallel decoding method) or 2 (diagonal parallel decoding method).
+
+To run the code with adjusted settings:
+    python main.py configs/your_json_file.json
